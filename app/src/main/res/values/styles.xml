@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr format="reference" name="cardStyle"/>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <!-- Light Theme -->
+
+    <style name="AppTheme.Base" parent="Base.Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="android:windowBackground">@color/windowBackground</item>-->
+        <item name="android:navigationBarColor" tools:targetApi ="21">@color/primary_dark</item>
+        <item name="windowActionModeOverlay">true</item>
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorPrimaryInverse">@color/textColorPrimaryInverse</item>
+        <item name="android:textColorSecondaryInverse">@color/textColorSecondaryInverse</item>
+
+        <!-- custom themed attributes -->
+        <item name="themed_card_background_color">@color/textColorPrimaryInverse</item>
+        <item name="themedCardHighlightColor">@color/primary_light</item>
+        <item name="themedDrawerBackgroundColor">@android:color/white</item>
+
+        <item name="cardStyle">@style/CardView.Light</item>
+
+        <item name="themedTextColorPrimary">@color/textColorPrimary</item>
+        <item name="themedTextColorSecondary">@color/textColorSecondary</item>
+        <item name="themedTextColorSecondaryLight">@color/textColorSecondaryLight</item>
+        <item name="themedTextColorPrimaryInverse">@color/textColorPrimaryInverse</item>
+        <item name="themedTextColorSecondaryInverse">@color/textColorSecondaryInverse</item>
+        <item name="themedColorPrimary">@color/primary</item>
+        <item name="themedColorPrimaryLight">@color/primary_light</item>
+        <item name ="themedColorPrimaryDark">@color/primary_dark</item>
+        <item name="themedColorAccent">@color/accent</item>
+
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <!-- Required theme items -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="android:windowBackground">@color/windowBackground</item>-->
+        <!--<item name="android:navigationBarColor" tools:targetApi ="21">@color/colorPrimaryDark</item>-->
+        <item name="windowActionModeOverlay">true</item>
+
+
+        <!--Dark Theme color scheme -->
+
+        <item name="colorPrimary">@color/primary_inverse</item>
+        <item name="colorPrimaryDark">@color/primary_dark_inverse</item>
+        <item name="colorAccent">@color/accent_inverse</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
+        <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
+        <item name="android:textColorPrimaryInverse">@color/textColorPrimary</item>
+        <item name="android:textColorSecondaryInverse">@color/textColorSecondary</item>
+
+        <!-- custom themed attributes -->
+        <item name="themed_card_background_color">@color/textColorSecondary</item>
+        <item name="themedDrawerBackgroundColor">@color/darkDrawer</item>
+        <item name="themedTextColorPrimary">@color/textColorPrimaryInverse</item>
+        <item name="themedTextColorSecondary">@color/textColorSecondaryInverse</item>
+        <item name="themedTextColorPrimaryInverse">@color/textColorPrimary</item>
+        <item name="themedTextColorSecondaryInverse">@color/textColorSecondary</item>
+        <item name="themedTextColorSecondaryLight">@color/textColorSecondaryLightInverse</item>
+
+        <item name="cardStyle">@style/CardView.Dark</item>
+
+        <item name="themedColorPrimary">@color/primary_inverse</item>
+        <item name="themedColorPrimaryLight">@color/primary_light_inverse</item>
+        <item name = "themedColorPrimaryDark">@color/primary_dark_inverse</item>
+        <item name="themedColorAccent">@color/accent_inverse</item>
+    </style>
+
+</resources>

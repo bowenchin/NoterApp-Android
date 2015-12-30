@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#00BCD4</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="primary_light">#B2EBF2</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="genBackground">#EEEEEE</color>
+    <color name="orange200">#FFAB40</color>
+    <color name="colorGray">#ffafafaf</color>
+
+
+    <!-- text color: white -->
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#ff4b4b4b</color>
+    <color name="textColorSecondaryLight">#ffcdcdcd</color>
+    <color name="textColorSecondaryLightInverse">#ff696969</color>
+    <color name="textColorBlack">#000000</color>
+
+    <!-- inverse text color: 87% black -->
+    <color name="textColorPrimaryInverse">#ffffff</color>
+    <color name="textColorSecondaryInverse">#ffb4b4b4</color>
+
+    <color name="darkDrawer">#ff373737</color>
+
+    <!-- alternative color palette -->
+    <color name="primary_inverse">#0097A7</color>
+    <color name="primary_dark_inverse">#006064</color>
+    <color name="primary_light_inverse">#4DD0E1</color>
+    <color name="accent_inverse">#FF9800</color>
+</resources>

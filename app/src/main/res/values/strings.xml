@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Remindr</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_task_edit">Edit Task</string>
+
+    <string name="title">Title</string>
+    <string name="notes">Notes</string>
+
+    <string name="delete_q">Delete?</string>
+    <string name="delete">Delete</string>
+
+    <string name="set_reminder">Remind me at:</string>
+    <string name="task_saved_message">Task has been saved.</string>
+
+    <string name="no_data_available">You do not have any tasks or reminders set.</string>
+
+    <!-- For preferences -->
+    <string name="default_title">Default Title</string>
+    <string name="tasks">Tasks</string>
+    <string name="default_title_description">The default title for a task.</string>
+    <string name="minutes_from_now">Minutes from now</string>
+    <string name="minutes_from_now_description">The default number of minutes into the future to set the reminder.</string>
+    <string name="pref_task_title_key">default_task_title</string>
+    <string name="pref_default_time_from_now_key">time_from_now_default</string>
+
+    <string name="pref_dark_theme" translatable="false">pref_dark_theme</string> <!-- deprecated -->
+    <string name="pref_theme" translatable="false">pref_theme</string>
+    <string name="pref_help" translatable="false">pref_help</string>
+    <string name="pref_theme_title">Theme</string>
+    <string name="pref_category_application">Application</string>
+    <string name="pref_category_other">Other</string>
+
+    <string name="title_instructions">Instructions</string>
+    <string name="title_help">Help/Support</string>
+
+
+
+
+
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/pref_category_application" >
+        <ListPreference
+            android:key="@string/pref_theme"
+            android:title="@string/pref_theme_title"
+            android:entries="@array/pref_theme_options"
+            android:entryValues="@array/pref_theme_values"
+            android:defaultValue="@string/pref_theme_value_light"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/tasks">
+
+        <EditTextPreference
+            android:key="@string/pref_task_title_key"
+            android:summary="@string/default_title_description"
+            android:title="@string/default_title"/>
+
+        <EditTextPreference
+            android:key="@string/pref_default_time_from_now_key"
+            android:summary="@string/minutes_from_now_description"
+            android:title="@string/minutes_from_now"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+    android:title="@string/pref_category_other" >
+
+    <Preference
+        android:key="@string/title_instructions"
+        android:title="@string/title_instructions">
+    </Preference>
+
+    <Preference
+        android:key="@string/pref_help"
+        android:title="@string/title_help">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://android.bowenchin.com/"
+            />
+    </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
