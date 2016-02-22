@@ -1,4 +1,4 @@
-<img src="screenshots/Remindr-feature-graphic.png" height="400" alt="Banner"/> 
+<img src="screenshots/Remindr-feature-graphic.png" height="200" alt="Banner"/> 
 # Remindr
 Remindr is a simple and intuitive reminder and to-do task manager application.
 
