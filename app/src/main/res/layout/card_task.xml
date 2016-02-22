@@ -10,10 +10,12 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:padding="16dp"
-    android:foreground="?android:attr/selectableItemBackground"
     card_view:cardCornerRadius="4dp"
     android:elevation="6dp"
     android:layout_gravity="center"
+    style="?attr/cardStyle"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     >
 
     <RelativeLayout

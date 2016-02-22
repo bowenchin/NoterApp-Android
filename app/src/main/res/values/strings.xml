@@ -15,7 +15,7 @@
     <string name="set_reminder">Remind me at:</string>
     <string name="task_saved_message">Task has been saved.</string>
 
-    <string name="no_data_available">You do not have any tasks or reminders set.</string>
+    <string name="no_data_available">You do not have any tasks or reminders.</string>
 
     <!-- For preferences -->
     <string name="default_title">Default Title</string>

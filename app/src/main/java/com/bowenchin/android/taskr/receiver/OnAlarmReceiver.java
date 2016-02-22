@@ -35,7 +35,7 @@ public class OnAlarmReceiver extends BroadcastReceiver {
         Notification noti = new Notification.Builder(context)
                 .setContentTitle(context.getString(R.string.app_name))
                 .setContentText(title)
-                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+                .setSmallIcon(R.drawable.ic_notifications_white_24dp)
                 .setContentIntent(pi)
                 .setAutoCancel(true)
                 .setLights(0xffffffff, 300, 300)

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:elevation="6dp">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_content_clear_white"
+        android:id="@+id/exit"
+        android:elevation="12dp"
+        android:layout_alignTop="@+id/header"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        />
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,19 +26,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_content_clear_white"
-                android:id="@+id/exit"
-                android:elevation="10dp"
-                android:layout_alignTop="@+id/header"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="50dp"
-                android:visibility="visible"
-                />
 
             <ImageView
                 android:id="@+id/header"

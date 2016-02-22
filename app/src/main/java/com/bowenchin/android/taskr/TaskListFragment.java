@@ -2,6 +2,7 @@ package com.bowenchin.android.taskr;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bowenchin.android.taskr.provider.TaskProvider;
@@ -27,6 +29,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
     RecyclerView recyclerView;
     TaskListAdapter adapter;
     private TextView emptyView;
+    private ImageView empty_view_illustration;
 
 
     public TaskListFragment() {
@@ -56,28 +59,31 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
         adapter.swapCursor(null);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View v = inflater.inflate(R.layout.fragment_task_list,container,false);
-        recyclerView = (RecyclerView)v.findViewById(R.id.recycler);
+        final View v = inflater.inflate(R.layout.fragment_task_list, container, false);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        //emptyView = (TextView) v.findViewById(R.id.empty_view);
+        emptyView = (TextView) v.findViewById(R.id.empty_view);
+        empty_view_illustration = (ImageView)v.findViewById(R.id.empty_view_illustration);
 
-        /*if (dataset.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
+        TaskListAdapter tla = new TaskListAdapter();
+
+        if (tla.getItemCount() == 0 ) {
+            recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.VISIBLE);
+            empty_view_illustration.setVisibility(View.VISIBLE);
         }
         else {
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
-        }*/
-
+            empty_view_illustration.setVisibility(View.GONE);
+        }
 
         /*SwipeableRecyclerViewTouchListener swipeTouchListener =
                 new SwipeableRecyclerViewTouchListener(recyclerView,
