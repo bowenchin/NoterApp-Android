@@ -76,48 +76,14 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
 
         if (tla.getItemCount() == 0 ) {
             recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.VISIBLE);
-            empty_view_illustration.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.INVISIBLE);
+            empty_view_illustration.setVisibility(View.INVISIBLE);
         }
         else {
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
             empty_view_illustration.setVisibility(View.GONE);
         }
-
-        /*SwipeableRecyclerViewTouchListener swipeTouchListener =
-                new SwipeableRecyclerViewTouchListener(recyclerView,
-                        new SwipeableRecyclerViewTouchListener.SwipeListener() {
-                            @Override
-                            public boolean canSwipe(int position) {
-                                return true;
-                            }
-
-                            @Override
-                            public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
-                                for (int position : reverseSortedPositions) {
-                                    //mItems.remove(position);
-                                    TaskListAdapter ta = new TaskListAdapter();
-                                    ta.deleteTask(getContext(),ta.getItemId(position));
-
-                                    adapter.notifyItemRemoved(position);
-                                }
-                                adapter.notifyDataSetChanged();
-                            }
-
-                            @Override
-                            public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
-                                for (int position : reverseSortedPositions) {
-                                    //mItems.remove(position);
-                                    TaskListAdapter ta = new TaskListAdapter();
-                                    ta.deleteTask(getContext(),ta.getItemId(position));
-                                    adapter.notifyItemRemoved(position);
-                                }
-                                adapter.notifyDataSetChanged();
-                            }
-                        });
-
-        recyclerView.addOnItemTouchListener(swipeTouchListener);*/
 
         return v;
     }
