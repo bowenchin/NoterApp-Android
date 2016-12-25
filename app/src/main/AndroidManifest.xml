@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bowenchin.android.taskr">
+    package="com.bowenchin.android.remindr">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"
+        android:resizeable="true"   />
 
     <application
         android:allowBackup="true"
@@ -11,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TaskListActivity"
+            android:name="com.bowenchin.android.remindr.TaskListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,36 +29,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TaskEditActivity"
+            android:name="com.bowenchin.android.remindr.TaskEditActivity"
             android:label="@string/title_activity_task_edit"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".TaskListActivity">
+            android:parentActivityName="com.bowenchin.android.remindr.TaskListActivity">
         <!-- Parent activity meta-data to support 4.0 and lower -->
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value=".TaskListActivity" />
+            android:value="com.bowenchin.android.remindr.TaskListActivity" />
         </activity>
 
-        <activity android:name=".PreferencesActivity"
+        <activity android:name="com.bowenchin.android.remindr.PreferencesActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".TaskListActivity">
+            android:parentActivityName="com.bowenchin.android.remindr.TaskListActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TaskListActivity" />
+                android:value="com.bowenchin.android.remindr.TaskListActivity" />
         </activity>
 
+        <activity android:name="com.bowenchin.android.remindr.IntroActivity"
+            android:label="@string/app_intro" />
+
         <provider
-            android:authorities="com.bowenchin.android.taskr.provider.TaskProvider"
-            android:name=".provider.TaskProvider"
+            android:authorities="com.bowenchin.android.remindr.provider.TaskProvider"
+            android:name="com.bowenchin.android.remindr.provider.TaskProvider"
             android:exported="false"
             />
 
         <receiver
-            android:name=".receiver.OnAlarmReceiver"
+            android:name="com.bowenchin.android.remindr.receiver.OnAlarmReceiver"
             android:exported="false"/>
 
-        <receiver android:name=".receiver.OnBootReceiver" android:exported="false">
+        <receiver android:name="com.bowenchin.android.remindr.receiver.OnBootReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>

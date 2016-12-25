@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.bowenchin.android.taskr.TaskListActivity">
+    tools:context="com.bowenchin.android.remindr.TaskListActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment"
-            android:name="com.bowenchin.android.taskr.TaskListFragment"
+            android:name="com.bowenchin.android.remindr.TaskListFragment"
             tools:layout="@layout/fragment_task_list" />
 
     </FrameLayout>
