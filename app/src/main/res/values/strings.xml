@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Remindr</string>
+    <string name="app_name">Noter</string>
     <string name="action_settings">Settings</string>
     <string name="app_intro">Intro</string>
 
@@ -31,11 +31,12 @@
     <string name="pref_theme" translatable="false">pref_theme</string>
     <string name="pref_help" translatable="false">pref_help</string>
     <string name="pref_theme_title">Theme</string>
+    <string name="pref_theme_description">You can choose between light or dark theme for the app interface.</string>
     <string name="pref_category_application">Application</string>
     <string name="pref_category_other">Other</string>
 
     <string name="title_instructions">Instructions</string>
-    <string name="title_help">Help/Support</string>
+    <string name="title_help">Support</string>
 
 
 

@@ -5,33 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.bowenchin.android.remindr.TaskListActivity">
+    tools:context="com.bowenchin.android.noter.TaskListActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
+        android:layout_margin="8dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="30sp" />
 
     <FrameLayout
         android:id="@+id/fragmentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="44sp"
+        android:layout_marginBottom="@dimen/mtrl_bottomappbar_height">
 
         <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment"
-            android:name="com.bowenchin.android.remindr.TaskListFragment"
+            android:name="com.bowenchin.android.noter.TaskListFragment"
             tools:layout="@layout/fragment_task_list" />
 
     </FrameLayout>
@@ -40,8 +37,19 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_white_24dp" />
+        app:fabSize="normal"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_anchor="@id/bottom_app_bar"/>
+
+    <android.support.design.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mtrl_bottomappbar_height"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/primary"
+        app:fabAlignmentMode="end"
+        android:background="?attr/colorPrimaryDark"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/AppTheme.AppBarOverlay" />
 
 </android.support.design.widget.CoordinatorLayout>

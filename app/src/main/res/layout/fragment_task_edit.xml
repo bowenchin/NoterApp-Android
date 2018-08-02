@@ -3,20 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:elevation="6dp">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_content_clear_white"
-        android:id="@+id/exit"
-        android:elevation="12dp"
-        android:layout_alignTop="@+id/header"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        />
+    android:layout_height="match_parent">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -26,7 +13,17 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_content_clear_white"
+                android:id="@+id/exit"
+                android:elevation="12dp"
+                android:layout_alignTop="@+id/header"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="50dp"
+                />
             <ImageView
                 android:id="@+id/header"
                 android:layout_width="match_parent"
@@ -90,7 +87,8 @@
                 android:id="@+id/imageView"
                 android:layout_alignBottom="@+id/notesLayout"
                 android:layout_alignLeft="@+id/titleLayout"
-                android:layout_alignStart="@+id/titleLayout" />
+                android:layout_alignStart="@+id/titleLayout"
+                android:tint="?attr/colorPrimaryDark"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -101,6 +99,7 @@
                 android:layout_alignLeft="@+id/imageView"
                 android:layout_alignStart="@+id/imageView"
                 android:layout_marginTop="32dp"
+                android:tint="?attr/colorPrimaryDark"
                 />
 
             <ImageView
@@ -112,6 +111,7 @@
                 android:layout_alignLeft="@+id/imageView"
                 android:layout_alignStart="@+id/imageView"
                 android:layout_marginTop="75dp"
+                android:tint="?attr/colorPrimaryDark"
                 />
 
             <TextView
@@ -138,15 +138,16 @@
                 android:layout_alignStart="@+id/task_date" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/set_reminder"
-                android:id="@+id/textView"
-                android:layout_below="@+id/notesLayout"
                 android:layout_alignLeft="@+id/reminderIcon"
                 android:layout_alignStart="@+id/reminderIcon"
-                android:layout_marginTop="6dp" />
+                android:layout_below="@+id/notesLayout"
+                android:layout_marginTop="4dp"
+                android:text="@string/set_reminder"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

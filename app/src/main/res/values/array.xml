@@ -9,6 +9,10 @@
         <item>@string/pref_theme_value_light</item>
         <item>@string/pref_theme_value_dark</item>
     </string-array>
+    <string-array name="pref_theme_numValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string name="pref_theme_value_light">Light</string>
     <string name="pref_theme_value_dark">Dark</string>
 </resources>

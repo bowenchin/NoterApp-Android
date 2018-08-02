@@ -6,6 +6,7 @@
         <ListPreference
             android:key="@string/pref_theme"
             android:title="@string/pref_theme_title"
+            android:summary="@string/pref_theme_description"
             android:entries="@array/pref_theme_options"
             android:entryValues="@array/pref_theme_values"
             android:defaultValue="@string/pref_theme_value_light"
@@ -40,7 +41,7 @@
         android:title="@string/title_help">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/bowenchin/Remindr/issues"
+            android:data="https://github.com/bowenchin/RemindrApp-Android/issues"
             />
     </Preference>
     </PreferenceCategory>
