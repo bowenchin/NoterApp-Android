@@ -69,7 +69,6 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
         emptyView = (TextView) v.findViewById(R.id.empty_view);
         empty_view_illustration = (ImageView)v.findViewById(R.id.empty_view_illustration);
 
-        Log.e("adapter", "Count: " + adapter.getItemCount());
         if (adapter.getItemCount() > -1 ) {
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);

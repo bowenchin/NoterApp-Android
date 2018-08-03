@@ -141,9 +141,6 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Saving task...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
                 String tle = titleText.getText().toString();
 
                 if(TextUtils.isEmpty(tle)) {

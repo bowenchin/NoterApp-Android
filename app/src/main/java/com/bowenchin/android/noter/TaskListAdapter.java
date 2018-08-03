@@ -60,7 +60,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Context context = viewHolder.titleView.getContext();
-//        viewHolder.titleView.setText(fakeData[position]);
         final long id = getItemId(position);
 
         final TaskListActivity taskListActivity = new TaskListActivity();
@@ -103,7 +102,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
             @Override
             public void onClick(View view){
                 ((OnEditTask)context).editTask(id);
-                //taskListActivity.editTask(id);
             }
         });
 

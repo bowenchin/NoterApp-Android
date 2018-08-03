@@ -24,7 +24,6 @@ public class OnAlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent){
         //IMPORTANT: Do not do any asynchronous operations in BroadcastReceive.onReceive!
 
-        //TODO: Clicking on notification does not pull up that task
         NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent taskEditIntent = new Intent(context, TaskEditActivity.class);
