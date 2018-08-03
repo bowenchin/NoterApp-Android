@@ -9,12 +9,12 @@ To start developing in Android Studio, download the project as a zip file. Then 
 # Features
 --------------
 - Material Design 2.0
-- No permissions needed.
-- Small and light-weight app.
-- Everything is stored locally on your device for best privacy.
-- Set reminder date and time for each tasks.
+- No permissions needed
+- Small and light-weight app
+- Everything is stored locally on your device for best privacy
+- Set reminder date and time for each tasks
 - Personalize with light and dark themes 
-- Completely free, ad-free and open source.
+- Completely free, ad-free and open source
 
 # Screenshots
 --------------
