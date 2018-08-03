@@ -99,6 +99,15 @@
         <item name="themedColorPrimaryLight">@color/primary_light_inverse</item>
         <item name="themedColorPrimaryDark">@color/primary_dark_inverse</item>
         <item name="themedColorAccent">@color/accent_inverse</item>
+
+        <item name="android:datePickerDialogTheme">@style/datepickerCustom</item>
+    </style>
+
+    <style name="datepickerCustom" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">?attr/themedDrawerBackgroundColor</item>
+        <item name="android:textColorPrimary">?attr/themedTextColorPrimary</item>
+        <item name="android:textColorSecondary">?attr/themedTextColorSecondary</item>
     </style>
 
 </resources>

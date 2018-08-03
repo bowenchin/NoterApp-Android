@@ -30,15 +30,6 @@ import java.text.SimpleDateFormat;
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder> {
     private ImageView mColorImageView;
 
-//    static String[] fakeData = new String[]{
-//            "One",
-//            "Two",
-//            "Three",
-//            "Four",
-//            "Five",
-//            "Testing",
-//    };
-
     Cursor cursor;
     int titleColumnIndex;
     int notesColumnIndex;

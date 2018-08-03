@@ -1,5 +1,6 @@
 package com.bowenchin.android.noter;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -35,7 +36,7 @@ public class DatePickerDialogFragment extends DialogFragment {
         OnDateSetListener callback = (OnDateSetListener)
                 getFragmentManager().findFragmentByTag(TaskEditFragment.DEFAULT_FRAGMENT_TAG);
         Bundle args = getArguments();
-        return new DatePickerDialog(getActivity(),callback,args.getInt(YEAR),args.getInt(MONTH),args.getInt(DAY));
+        return new DatePickerDialog(getActivity(), callback,args.getInt(YEAR),args.getInt(MONTH),args.getInt(DAY));
     }
 
 

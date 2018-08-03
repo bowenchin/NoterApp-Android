@@ -7,7 +7,6 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v4.content.IntentCompat;
 import android.text.method.DigitsKeyListener;
 
 /**

@@ -1,6 +1,5 @@
 package com.bowenchin.android.noter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,10 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +16,8 @@ import android.view.MenuItem;
 import com.bowenchin.android.noter.interfaces.OnEditTask;
 
 public class TaskListActivity extends AppCompatActivity implements OnEditTask {
+
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +27,6 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
         BottomAppBar bottomAppBar = (BottomAppBar) findViewById(R.id.bottom_app_bar);
         setSupportActionBar(bottomAppBar);
         bottomAppBar.replaceMenu(R.menu.menu_task_list);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Adding task...", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                editTask(0);
-            }
-        });
 
         //Check if app is launch on first time. If yes, display dialogue help box
         if (isFirstTime()) {
@@ -51,6 +40,15 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editTask(0);
+            }
+        });
+
     }
 
     @Override
