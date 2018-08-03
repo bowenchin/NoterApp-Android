@@ -1,19 +1,18 @@
-<img src="screenshots/Remindr-feature-graphic.png" height="200" alt="Banner"/> 
-# Remindr
-Remindr is a simple and intuitive reminder and to-do task manager application.
-
-[Join the Google Play alpha-release channel!](https://play.google.com/apps/testing/com.bowenchin.android.taskr)
+<img src="screenshots/Noter-feature-graphic.png" height="200" alt="Banner"/> 
+# Noter
+Noter is a free, simple, private note and todo app. Everything is located in a central location on a single list and stored privately on your smartphone or tablet. It is also designed with the latest Material Design components and guidelines.
 
 # Getting Started
 --------------
-To start developing in Android Studio, download the project as a zip file. Then simply un-zip the folder and "Import Project" in Android Studio by navigating and selecting the folder you should have created.
+To start developing in Android Studio, download the project as a zip file. Then simply un-zip and import the folder in Android Studio..
 
 # Screenshots
 --------------
-<img src="screenshots/Screenshot_20151229-210243_framed.png" height="400" alt="Screenshot"/> 
-<img src="screenshots/Screenshot_20151229-210255_framed.png" height="400" alt="Screenshot"/> 
-<img src="screenshots/Screenshot_20151229-210550_framed.png" height="400" alt="Screenshot"/> 
-<img src="screenshots/Screenshot_20151229-210557_framed.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screenshot_list_light.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_list_dark" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_edit_light.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_edit_dark.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_settings_light.png" height="400" alt="Screenshot"/> 
 
 #Acknowledgements
 --------------
@@ -21,11 +20,14 @@ To start developing in Android Studio, download the project as a zip file. Then 
 
 #Imported Dependencies
 --------------
-* [TextDrawable](https://github.com/amulyakhare/TextDrawable) by amulyakhare
+* [TextDrawable](https://github.com/amulyakhare/TextDrawable)
+* [AppIntro](https://github.com/apl-devs/AppIntro)
+* [SwipeableRecyclerView](https://github.com/brnunes/SwipeableRecyclerView)
+* [Android About Page](https://github.com/medyo/android-about-page)
 
 #Copyright
 --------------
-Copyright 2016 Bowen Chin. All rights reserved. 
+Copyright 2018 Bowen Chin. All rights reserved. 
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

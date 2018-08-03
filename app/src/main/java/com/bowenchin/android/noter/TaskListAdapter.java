@@ -130,13 +130,15 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     }
 
     public void deleteTask(Context context, long id){
-//        Log.d("TaskListAdapter", "Called deleteTask");
         context.getContentResolver().delete(ContentUris.withAppendedId(
                 TaskProvider.CONTENT_URI, id), null, null);
     }
 
     @Override
     public int getItemCount() {
+//        Cursor cursor = context.getContentResolver().query(
+//                TaskProvider.CONTENT_URI, null, null, null, null);
+
         return cursor!=null ? cursor.getCount() : 0;
     }
 

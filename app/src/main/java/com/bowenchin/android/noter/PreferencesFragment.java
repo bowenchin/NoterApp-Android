@@ -36,6 +36,15 @@ public class PreferencesFragment extends PreferenceFragment {
                 return false;
             }
         });
+
+        findPreference(this.getString(R.string.title_about)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getActivity(), AboutActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 
     @Override

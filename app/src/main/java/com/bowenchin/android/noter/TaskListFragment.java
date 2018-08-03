@@ -2,8 +2,10 @@ package com.bowenchin.android.noter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -54,6 +56,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
     @Override
     public void onLoaderReset(Loader<Cursor> loader){
         adapter.swapCursor(null);
+        loader.reset();
     }
 
     @Override
@@ -61,6 +64,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
                              Bundle savedInstanceState) {
 
         final View v = inflater.inflate(R.layout.fragment_task_list, container, false);
+
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
@@ -68,17 +72,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
 
         emptyView = (TextView) v.findViewById(R.id.empty_view);
         empty_view_illustration = (ImageView)v.findViewById(R.id.empty_view_illustration);
-
-        if (adapter.getItemCount() > -1 ) {
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            empty_view_illustration.setVisibility(View.GONE);
-        }
-        else {
-            recyclerView.setVisibility(View.INVISIBLE);
-            emptyView.setVisibility(View.VISIBLE);
-            empty_view_illustration.setVisibility(View.VISIBLE);
-        }
+        
 
         SwipeableRecyclerViewTouchListener swipeTouchListener =
                 new SwipeableRecyclerViewTouchListener(recyclerView,
@@ -99,6 +93,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
                                     adapter.deleteTask(getContext(),adapter.getItemId(position));
                                     adapter.notifyItemRemoved(getId());
                                 }
+                                setEmptyView();
                                 adapter.notifyDataSetChanged();
                             }
 
@@ -108,6 +103,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
                                     adapter.deleteTask(getContext(),adapter.getItemId(position));
                                     adapter.notifyItemRemoved(position);
                                 }
+                                setEmptyView();
                                 adapter.notifyDataSetChanged();
                             }
                         });
@@ -115,6 +111,27 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
         recyclerView.addOnItemTouchListener(swipeTouchListener);
 
         return v;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        setEmptyView();
+    }
+
+    private void setEmptyView(){
+        Cursor cursor = getContext().getContentResolver().query(
+                TaskProvider.CONTENT_URI, null, null, null, null);
+        if(cursor.moveToFirst()){
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+            empty_view_illustration.setVisibility(View.GONE);
+        }
+        else {
+            recyclerView.setVisibility(View.INVISIBLE);
+            emptyView.setVisibility(View.VISIBLE);
+            empty_view_illustration.setVisibility(View.VISIBLE);
+        }
     }
 
 }

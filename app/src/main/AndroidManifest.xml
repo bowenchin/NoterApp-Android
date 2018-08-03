@@ -51,6 +51,9 @@
         <activity android:name="com.bowenchin.android.noter.IntroActivity"
             android:label="@string/app_intro" />
 
+        <activity android:name="com.bowenchin.android.noter.AboutActivity"
+            android:label="@string/app_name" />
+
         <provider
             android:authorities="com.bowenchin.android.noter.provider.TaskProvider"
             android:name="com.bowenchin.android.noter.provider.TaskProvider"

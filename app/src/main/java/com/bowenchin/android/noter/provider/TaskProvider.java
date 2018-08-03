@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
@@ -129,8 +130,6 @@ public class TaskProvider extends ContentProvider {
         return c;
     }
 
-
-
     @Override
     public boolean onCreate(){
         //Grab a connection to our database
@@ -159,5 +158,10 @@ public class TaskProvider extends ContentProvider {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
             throw new UnsupportedOperationException();
         }
+    }
+
+    public long getTaskCount() {
+        SQLiteDatabase db = new DatabaseHelper(getContext()).getReadableDatabase();
+        return DatabaseUtils.queryNumEntries(db, DATABASE_TABLE);
     }
 }

@@ -37,13 +37,18 @@
     </Preference>
 
     <Preference
-        android:key="@string/pref_help"
-        android:title="@string/title_help">
+        android:key="@string/title_support"
+        android:title="@string/title_support">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/bowenchin/RemindrApp-Android/issues"
             />
     </Preference>
+
+        <Preference
+            android:key="@string/title_about"
+            android:title="@string/title_about">
+        </Preference>
     </PreferenceCategory>
 
 </PreferenceScreen>

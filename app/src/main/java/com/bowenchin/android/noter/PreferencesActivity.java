@@ -48,6 +48,7 @@ public class PreferencesActivity extends AppCompatActivity {
 
         };
 
+
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PreferencesFragment()).commit();
     }

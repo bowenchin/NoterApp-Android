@@ -16,7 +16,7 @@
     <string name="set_reminder">Remind me at:</string>
     <string name="task_saved_message">Task has been saved.</string>
 
-    <string name="no_data_available">You do not have any tasks or reminders.</string>
+    <string name="no_data_available">You do not have any notes or tasks.</string>
 
     <!-- For preferences -->
     <string name="default_title">Default Title</string>
@@ -36,10 +36,10 @@
     <string name="pref_category_other">Other</string>
 
     <string name="title_instructions">Instructions</string>
-    <string name="title_help">Support</string>
+    <string name="title_support">Support</string>
+    <string name="title_about">About</string>
 
-
-
+    <string name="copy_right" translatable="false">Copyright © %1$d</string>
 
 
 </resources>

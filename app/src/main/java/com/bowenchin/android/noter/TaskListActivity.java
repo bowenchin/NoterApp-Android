@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,8 +35,6 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
             //Onboarding
             Intent i = new Intent(this,IntroActivity.class);
             startActivity(i);
-            // show dialog
-            new AlertDialog.Builder(this).setTitle("Welcome to Noter").setMessage("Add a new to-do task by tapping on the \"+\" button to get started! \n \nLearn more by going to \"Settings\".").setNeutralButton("GOT IT", null).show();
         }
 
         setDarkStatusIcon(true);
