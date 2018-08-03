@@ -1,31 +1,41 @@
-<img src="screenshots/Noter-feature-graphic.png" height="200" alt="Banner"/> 
+<img src="screenshots/Noter-feature-graphic.png" height="400" alt="Banner"/> 
 # Noter
 Noter is a free, simple, private note and todo app. Everything is located in a central location on a single list and stored privately on your smartphone or tablet. It is also designed with the latest Material Design components and guidelines.
 
 # Getting Started
 --------------
-To start developing in Android Studio, download the project as a zip file. Then simply un-zip and import the folder in Android Studio..
+To start developing in Android Studio, download the project as a zip file. Then simply un-zip and import the folder in Android Studio.
+
+# Features
+--------------
+- Material Design 2.0
+- No permissions needed.
+- Small and light-weight app.
+- Everything is stored locally on your device for best privacy.
+- Set reminder date and time for each tasks.
+- Personalize with light and dark themes 
+- Completely free, ad-free and open source.
 
 # Screenshots
 --------------
 <img src="screenshots/screenshot_list_light.png" height="400" alt="Screenshot"/> 
-<img src="screenshots/screenshot_list_dark" height="400" alt="Screenshot"/> 
+<img src="screenshots/screenshot_list_dark.png" height="400" alt="Screenshot"/> 
 <img src="screenshots/screenshot_edit_light.png" height="400" alt="Screenshot"/> 
 <img src="screenshots/screenshot_edit_dark.png" height="400" alt="Screenshot"/> 
 <img src="screenshots/screenshot_settings_light.png" height="400" alt="Screenshot"/> 
 
-#Acknowledgements
+# Acknowledgements
 --------------
 * Android App Development for Dummies 3rd Edition by Michael Burton (Author)
 
-#Imported Dependencies
+# Imported Dependencies
 --------------
 * [TextDrawable](https://github.com/amulyakhare/TextDrawable)
 * [AppIntro](https://github.com/apl-devs/AppIntro)
 * [SwipeableRecyclerView](https://github.com/brnunes/SwipeableRecyclerView)
 * [Android About Page](https://github.com/medyo/android-about-page)
 
-#Copyright
+# Copyright
 --------------
 Copyright 2018 Bowen Chin. All rights reserved. 
 
