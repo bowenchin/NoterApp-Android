@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Created by bowenchin on 29/12/15.
@@ -27,9 +28,7 @@ public class PreferencesActivity extends AppCompatActivity {
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        setDarkStatusIcon(true);
 
         //addPreferences(R.xml.task_preferences);
         //Preferences.sync(getPreferencesManager());
@@ -51,6 +50,25 @@ public class PreferencesActivity extends AppCompatActivity {
 
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new PreferencesFragment()).commit();
+    }
+
+    public void setDarkStatusIcon(boolean bDark) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            View decorView = getWindow().getDecorView();
+            if(decorView != null){
+                int vis = decorView.getSystemUiVisibility();
+                if(bDark){
+                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                } else{
+                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+                decorView.setSystemUiVisibility(vis);
+            }
+        }
     }
 
     @Override

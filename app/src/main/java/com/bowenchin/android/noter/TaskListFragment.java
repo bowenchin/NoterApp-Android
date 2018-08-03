@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,8 +69,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
         emptyView = (TextView) v.findViewById(R.id.empty_view);
         empty_view_illustration = (ImageView)v.findViewById(R.id.empty_view_illustration);
 
-        TaskListAdapter tla = new TaskListAdapter();
-
+        Log.e("adapter", "Count: " + adapter.getItemCount());
         if (adapter.getItemCount() > -1 ) {
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
@@ -97,8 +97,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
                             @Override
                             public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
                                 for (int position : reverseSortedPositions) {
-                                    TaskListAdapter tla = new TaskListAdapter();
-                                    tla.deleteTask(getContext(),adapter.getItemId(position));
+                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
                                     adapter.notifyItemRemoved(getId());
                                 }
                                 adapter.notifyDataSetChanged();
@@ -107,8 +106,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
                             @Override
                             public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
                                 for (int position : reverseSortedPositions) {
-                                    TaskListAdapter tla = new TaskListAdapter();
-                                    tla.deleteTask(getContext(),adapter.getItemId(position));
+                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
                                     adapter.notifyItemRemoved(position);
                                 }
                                 adapter.notifyDataSetChanged();

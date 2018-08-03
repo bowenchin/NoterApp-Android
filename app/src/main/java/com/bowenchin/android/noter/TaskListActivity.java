@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bowenchin.android.noter.interfaces.OnEditTask;
+import com.bowenchin.android.noter.provider.TaskProvider;
 
 public class TaskListActivity extends AppCompatActivity implements OnEditTask {
 
@@ -37,9 +38,7 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
             new AlertDialog.Builder(this).setTitle("Welcome to Noter").setMessage("Add a new to-do task by tapping on the \"+\" button to get started! \n \nLearn more by going to \"Settings\".").setNeutralButton("GOT IT", null).show();
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        setDarkStatusIcon(true);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +48,25 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
             }
         });
 
+    }
+
+    public void setDarkStatusIcon(boolean bDark) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            View decorView = getWindow().getDecorView();
+            if(decorView != null){
+                int vis = decorView.getSystemUiVisibility();
+                if(bDark){
+                    vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                } else{
+                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+                decorView.setSystemUiVisibility(vis);
+            }
+        }
     }
 
     @Override
@@ -89,7 +107,8 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
             // first time
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("RanBefore", true);
-            editor.commit();
+//            editor.commit();
+            editor.apply();
         }
         return !ranBefore;
     }
@@ -97,6 +116,6 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
     @Override
     public void editTask(long id){
         //When we are asked to edit a reminder, start the TaskEditActivity with the id of the task to edit.
-        startActivity(new Intent(this, TaskEditActivity.class).putExtra(TaskEditActivity.EXTRA_TASKID,id));
+        startActivity(new Intent(this, TaskEditActivity.class).putExtra(TaskProvider.COLUMN_TASKID, id));
     }
 }

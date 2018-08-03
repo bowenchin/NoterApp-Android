@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.bowenchin.android.noter.interfaces.OnEditFinished;
+import com.bowenchin.android.noter.provider.TaskProvider;
 
 public class TaskEditActivity extends AppCompatActivity implements OnEditFinished {
     public static final String EXTRA_TASKID = "taskId";
@@ -31,7 +32,8 @@ public class TaskEditActivity extends AppCompatActivity implements OnEditFinishe
             }
         });
 
-        long id = getIntent().getLongExtra(TaskEditActivity.EXTRA_TASKID,0L);
+//        long id = getIntent().getLongExtra(TaskEditActivity.EXTRA_TASKID,0L);
+        long id = getIntent().getLongExtra(TaskProvider.COLUMN_TASKID,0L);
         Fragment fragment = TaskEditFragment.newInstance(id);
 
         String fragmentTag = TaskEditFragment.DEFAULT_FRAGMENT_TAG;
