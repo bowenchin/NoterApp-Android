@@ -1,6 +1,9 @@
 package com.bowenchin.android.noter;
 
+import android.app.AlertDialog;
+import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bowenchin.android.noter.provider.TaskProvider;
+import com.bowenchin.android.noter.util.ReminderManager;
 import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
 
 /**
@@ -89,22 +93,48 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
 
                             @Override
                             public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
-                                for (int position : reverseSortedPositions) {
-                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
-                                    adapter.notifyItemRemoved(getId());
-                                }
-                                setEmptyView();
+                                final int[] rsp = reverseSortedPositions;
+
+                                new AlertDialog.Builder(getContext()).setTitle(R.string.delete_q)
+                                        .setMessage(R.string.delete_ask).setCancelable(true)
+                                        .setNegativeButton(android.R.string.cancel,null)
+                                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener(){
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i){
+                                                for (int position : rsp) {
+                                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
+                                                    adapter.notifyItemRemoved(position);
+                                                }
+                                                adapter.notifyDataSetChanged();
+                                                setEmptyView();
+                                            }
+                                        }).show();
+
                                 adapter.notifyDataSetChanged();
+                                setEmptyView();
                             }
 
                             @Override
                             public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
-                                for (int position : reverseSortedPositions) {
-                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
-                                    adapter.notifyItemRemoved(position);
-                                }
-                                setEmptyView();
+                                final int[] rsp = reverseSortedPositions;
+
+                                new AlertDialog.Builder(getContext()).setTitle(R.string.delete_q)
+                                        .setMessage(R.string.delete_ask).setCancelable(true)
+                                        .setNegativeButton(android.R.string.cancel,null)
+                                        .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener(){
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i){
+                                                for (int position : rsp) {
+                                                    adapter.deleteTask(getContext(),adapter.getItemId(position));
+                                                    adapter.notifyItemRemoved(position);
+                                                }
+                                                adapter.notifyDataSetChanged();
+                                                setEmptyView();
+                                            }
+                                        }).show();
+
                                 adapter.notifyDataSetChanged();
+                                setEmptyView();
                             }
                         });
 

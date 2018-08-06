@@ -12,7 +12,9 @@
 
     <string name="delete_q">Delete?</string>
     <string name="delete">Delete</string>
+    <string name="delete_ask">The selected task will be deleted.</string>
 
+    <string name="reminder_switch">Set notification reminder</string>
     <string name="set_reminder">Remind me at:</string>
     <string name="task_saved_message">Task has been saved.</string>
 

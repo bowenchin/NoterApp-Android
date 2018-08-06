@@ -33,4 +33,14 @@ public class ReminderManager {
         }
 
     }
+
+    public static void deleteReminder(Context context, long taskId){
+        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent i = new Intent(context, OnAlarmReceiver.class);
+        i.putExtra(TaskProvider.COLUMN_TASKID, taskId);
+
+        PendingIntent pi = PendingIntent.getBroadcast(context, 0 , i, PendingIntent.FLAG_ONE_SHOT);
+        alarmManager.cancel(pi);
+
+    }
 }

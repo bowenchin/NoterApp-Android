@@ -20,6 +20,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.bowenchin.android.noter.interfaces.OnEditTask;
 import com.bowenchin.android.noter.provider.TaskProvider;
+import com.bowenchin.android.noter.util.ReminderManager;
 import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
 
 import java.text.SimpleDateFormat;
@@ -132,13 +133,11 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     public void deleteTask(Context context, long id){
         context.getContentResolver().delete(ContentUris.withAppendedId(
                 TaskProvider.CONTENT_URI, id), null, null);
+        ReminderManager.deleteReminder(context, id);
     }
 
     @Override
     public int getItemCount() {
-//        Cursor cursor = context.getContentResolver().query(
-//                TaskProvider.CONTENT_URI, null, null, null, null);
-
         return cursor!=null ? cursor.getCount() : 0;
     }
 
