@@ -112,15 +112,10 @@ public class PreferencesActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         getDelegate().onPostCreate(savedInstanceState);
     }
+
     @Override
     public MenuInflater getMenuInflater() {
         return getDelegate().getMenuInflater();
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, TaskListActivity.class);
-        startActivity(intent);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

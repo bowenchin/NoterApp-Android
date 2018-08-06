@@ -15,14 +15,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -55,6 +57,8 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
     TextView dateButton;
     TextView timeButton;
     ImageView exitButton;
+    Switch reminderSwitch;
+    RelativeLayout reminderLayout;
 
     long taskId;
     Calendar taskDateAndTime;
@@ -120,6 +124,32 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
         dateButton = (TextView)v.findViewById(R.id.task_date);
         timeButton = (TextView)v.findViewById(R.id.task_time);
         exitButton = (ImageView)v.findViewById(R.id.exit);
+        reminderSwitch = (Switch)v.findViewById(R.id.reminderSwitch);
+        reminderLayout = (RelativeLayout)v.findViewById(R.id.reminderLayout);
+
+        if(taskId == 0 || taskDateAndTime.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()){
+            reminderSwitch.setChecked(false);
+            reminderLayout.setVisibility(View.GONE);
+        } else {
+            reminderSwitch.setChecked(true);
+            reminderLayout.setVisibility(View.VISIBLE);
+        }
+
+        reminderSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    //If no previous date, use "now"
+                    if(taskDateAndTime == null){
+                        taskDateAndTime = Calendar.getInstance();
+                        updateDateAndTimeButtons();
+                    }
+                    reminderLayout.setVisibility(View.VISIBLE);
+                } else {
+                    reminderLayout.setVisibility(View.GONE);
+                }
+            }
+        });
 
         //Configure exit button (TEMP)
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -224,7 +254,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
 
     @Override
     public void onLoaderReset(Loader<Cursor> arg0){
-        //nothign to reset for this fragment
+        //nothing to reset for this fragment
     }
 
     //A helper method to show our DatePicker
@@ -283,9 +313,15 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
             if(count != 1)
                 throw new IllegalStateException("Unable to update " + taskId);
         }
+
+        if(reminderSwitch.isChecked()) {
+            //Create a reminder for this task
+            ReminderManager.setReminder(getActivity(), taskId, title, taskDateAndTime);
+        } else if (!reminderSwitch.isChecked() && taskId != 0 && taskDateAndTime != null) {
+            ReminderManager.deleteReminder(getActivity(), taskId);
+        }
+
         Toast.makeText(getActivity(),getString(R.string.task_saved_message), Toast.LENGTH_SHORT).show();
 
-        //Create a reminder for this task
-        ReminderManager.setReminder(getActivity(), taskId, title, taskDateAndTime);
     }
 }
