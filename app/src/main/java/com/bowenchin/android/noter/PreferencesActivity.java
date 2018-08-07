@@ -118,6 +118,13 @@ public class PreferencesActivity extends AppCompatActivity {
         return getDelegate().getMenuInflater();
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, TaskListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {

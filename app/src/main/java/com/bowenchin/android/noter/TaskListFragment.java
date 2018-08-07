@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.content.CursorLoader;
@@ -33,6 +35,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
     TaskListAdapter adapter;
     private TextView emptyView;
     private ImageView empty_view_illustration;
+    private Boolean doSort = false;
 
 
     public TaskListFragment() {
@@ -41,15 +44,45 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
 
     @Override
     public void onCreate(Bundle savedInstanceState){
+        Preferences.applyTheme(getActivity());
         super.onCreate(savedInstanceState);
         adapter = new TaskListAdapter();
+        setHasOptionsMenu(true);
 
         getLoaderManager().initLoader(0, null, this);
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_sort_date) {
+            doSort = true;
+            Bundle args = new Bundle();
+            args.putString("sortOrder", "task_date_time");
+            getLoaderManager().restartLoader(id, args, this);
+            return true;
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_sort_alpha) {
+            doSort = true;
+            Bundle args = new Bundle();
+            args.putString("sortOrder", "title");
+            getLoaderManager().restartLoader(id, args, this);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public Loader<Cursor> onCreateLoader(int ignored, Bundle args){
-        return new CursorLoader(getActivity(), TaskProvider.CONTENT_URI,null,null,null,null);
+        return new CursorLoader(getActivity(), TaskProvider.CONTENT_URI,null,null,null, doSort ? args.getString("sortOrder") : "task_date_time");
     }
 
     @Override
@@ -76,7 +109,6 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
 
         emptyView = (TextView) v.findViewById(R.id.empty_view);
         empty_view_illustration = (ImageView)v.findViewById(R.id.empty_view_illustration);
-        
 
         SwipeableRecyclerViewTouchListener swipeTouchListener =
                 new SwipeableRecyclerViewTouchListener(recyclerView,
@@ -146,6 +178,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
     @Override
     public void onResume(){
         super.onResume();
+        Preferences.applyTheme(getActivity());
         setEmptyView();
     }
 

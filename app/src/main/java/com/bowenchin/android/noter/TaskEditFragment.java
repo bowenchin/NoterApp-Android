@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,7 +128,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
         reminderSwitch = (Switch)v.findViewById(R.id.reminderSwitch);
         reminderLayout = (RelativeLayout)v.findViewById(R.id.reminderLayout);
 
-        if(taskId == 0 || taskDateAndTime.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()){
+        if(taskId == 0){
             reminderSwitch.setChecked(false);
             reminderLayout.setVisibility(View.GONE);
         } else {
@@ -141,6 +142,11 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
                 if(isChecked){
                     //If no previous date, use "now"
                     if(taskDateAndTime == null){
+                        taskDateAndTime = Calendar.getInstance();
+                        updateDateAndTimeButtons();
+                    }
+
+                    if(taskDateAndTime.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()){
                         taskDateAndTime = Calendar.getInstance();
                         updateDateAndTimeButtons();
                     }
@@ -248,6 +254,14 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
         Long dateInMillis = task.getLong(task.getColumnIndexOrThrow(TaskProvider.COLUMN_DATE_TIME));
         Date date = new Date(dateInMillis);
         taskDateAndTime.setTime(date);
+
+        if(taskDateAndTime.getTimeInMillis() < Calendar.getInstance().getTimeInMillis()){
+            reminderSwitch.setChecked(false);
+            reminderLayout.setVisibility(View.GONE);
+        } else {
+            reminderSwitch.setChecked(true);
+            reminderLayout.setVisibility(View.VISIBLE);
+        }
 
         updateDateAndTimeButtons();
     }
