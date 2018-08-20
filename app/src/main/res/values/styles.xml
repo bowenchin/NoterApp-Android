@@ -96,7 +96,7 @@
         <item name="android:datePickerDialogTheme">@style/datepickerCustom</item>
     </style>
 
-    <style name="datepickerCustom" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+    <style name="datepickerCustom" parent="@android:style/Theme.Material.Light.Dialog">
         <item name="android:colorAccent">@color/accent</item>
         <item name="android:windowBackground">?attr/themedDrawerBackgroundColor</item>
         <item name="android:textColorPrimary">?attr/themedTextColorPrimary</item>

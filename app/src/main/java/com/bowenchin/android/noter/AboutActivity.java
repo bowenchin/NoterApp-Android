@@ -1,8 +1,10 @@
 package com.bowenchin.android.noter;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -24,7 +26,7 @@ public class AboutActivity extends AppCompatActivity {
                 .isRTL(false)
                 .setImage(R.drawable.ic_launcher_about)
                 .setDescription("Noter is a free, simple, private note and todo app. Everything is located in a central location on a single list and stored privately on your smartphone or tablet. It is also designed with the latest Material Design components and guidelines.")
-                .addItem(new Element().setTitle("Version 1.0"))
+                .addItem(new Element().setTitle("Version 1.2.1"))
                 .addGroup("Connect with us")
                 .addWebsite("http://bowenchin.com/")
                 .addTwitter("thebowenchin")
@@ -50,14 +52,15 @@ public class AboutActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String currentTheme = prefs.getString(getResources().getString(R.string.pref_theme), "Light");
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             View decorView = getWindow().getDecorView();
             if(decorView != null){
                 int vis = decorView.getSystemUiVisibility();
-                if(bDark){
+                if(bDark && currentTheme.equals("Light")){
                     vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-                } else{
-                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
                 }
                 decorView.setSystemUiVisibility(vis);
             }
