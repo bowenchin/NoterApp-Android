@@ -7,9 +7,11 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,14 +56,15 @@ public class TaskListActivity extends AppCompatActivity implements OnEditTask {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String currentTheme = prefs.getString(getResources().getString(R.string.pref_theme), "Light");
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             View decorView = getWindow().getDecorView();
             if(decorView != null){
                 int vis = decorView.getSystemUiVisibility();
-                if(bDark){
+                if(bDark && currentTheme.equals("Light")){
                     vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-                } else{
-                    vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
                 }
                 decorView.setSystemUiVisibility(vis);
             }
