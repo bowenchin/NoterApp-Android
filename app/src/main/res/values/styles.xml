@@ -31,7 +31,6 @@
     <style name="AppTheme.Base" parent="Base.Theme.MaterialComponents.Light">
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/genBackground</item>
         <item name="windowActionModeOverlay">true</item>
 
         <item name="colorPrimary">@color/primary</item>
@@ -66,9 +65,9 @@
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@color/textColorBlack</item>
 
         <!--Dark Theme color scheme -->
-
         <item name="colorPrimary">@color/primary_inverse</item>
         <item name="colorPrimaryDark">@color/primary_dark_inverse</item>
         <item name="colorAccent">@color/accent_inverse</item>
@@ -93,11 +92,19 @@
         <item name="themedColorPrimaryDark">@color/primary_dark_inverse</item>
         <item name="themedColorAccent">@color/accent_inverse</item>
 
+        <item name="android:timePickerDialogTheme">@style/timepickerCustom</item>
         <item name="android:datePickerDialogTheme">@style/datepickerCustom</item>
     </style>
 
-    <style name="datepickerCustom" parent="@android:style/Theme.Material.Light.Dialog">
-        <item name="android:colorAccent">@color/accent</item>
+    <style name="datepickerCustom" parent="Theme.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">?attr/themedDrawerBackgroundColor</item>
+        <item name="android:textColorPrimary">?attr/themedTextColorPrimary</item>
+        <item name="android:textColorSecondary">?attr/themedTextColorSecondary</item>
+    </style>
+
+    <style name="timepickerCustom" parent="Theme.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/accent</item>
         <item name="android:windowBackground">?attr/themedDrawerBackgroundColor</item>
         <item name="android:textColorPrimary">?attr/themedTextColorPrimary</item>
         <item name="android:textColorSecondary">?attr/themedTextColorSecondary</item>
