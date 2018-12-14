@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_height="80dp"
+    android:minHeight="80dp"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:padding="8dp"
     android:layout_marginTop="4dp"
@@ -11,16 +12,16 @@
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
     card_view:cardCornerRadius="8dp"
-    android:elevation="6dp"
     android:layout_gravity="center"
     style="?attr/cardStyle"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    >
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/toDoListItemColorImageView"
@@ -41,39 +42,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/toDoListItemColorImageView"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="-16dp"
             android:layout_toEndOf="@id/toDoListItemColorImageView"
             android:layout_toRightOf="@id/toDoListItemColorImageView"
             android:layout_toLeftOf="@id/reminderDate"
             android:layout_toStartOf="@id/reminderDate"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:padding="8dp"
             android:text="Task title"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/text2"
             style="@android:style/TextAppearance"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/text2"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
             android:layout_alignStart="@id/text1"
             android:layout_alignLeft="@id/text1"
-            android:layout_below="@id/text1"
-            android:layout_marginTop="-25dp"
-            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="0dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="8dp"
             android:text="Task notes"
-            />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Reminder date"
+            android:textSize="14sp"
             android:id="@+id/reminderDate"
             android:textColor="@color/orange200"
             android:layout_alignTop="@+id/text1"

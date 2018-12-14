@@ -54,6 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="17"
+                        android:maxLines="3"
                         android:hint="@string/title"
                         android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -76,9 +77,9 @@
                 android:id="@+id/notesLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="250dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginTop="230dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="16dp">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -86,7 +87,7 @@
                     android:id="@+id/notes"
                     android:hint="@string/notes"
                     android:ems="17"
-                    android:minLines="5"
+                    android:minLines="7"
                     android:layout_alignParentBottom="true"
                     android:layout_alignRight="@+id/fab"
                     android:layout_alignEnd="@+id/fab" />
@@ -94,14 +95,16 @@
             </android.support.design.widget.TextInputLayout>
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_insert_comment_black_24dp"
-                android:layout_marginBottom="75dp"
-                android:layout_marginStart="16dp"
-                android:id="@+id/imageView"
+                android:layout_alignTop="@+id/notesLayout"
                 android:layout_alignBottom="@+id/notesLayout"
-                android:tint="?attr/colorPrimaryDark"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginBottom="75dp"
+                android:src="@drawable/ic_insert_comment_black_24dp"
+                android:tint="?attr/colorPrimaryDark" />
 
             <Switch
                 android:id="@+id/reminderSwitch"
@@ -109,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/notesLayout"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
                 android:text="@string/reminder_switch"
                 android:textSize="16sp"
@@ -122,7 +125,8 @@
                 android:layout_below="@+id/notesLayout"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp">
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp">
 
             <ImageView
                 android:id="@+id/reminderIcon"
@@ -155,15 +159,15 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="32dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@android:style/TextAppearance.Medium"
-                android:id="@+id/task_time"
-                android:text="Task Time"
-                android:textColor="@color/orange200"
-                android:layout_alignBottom="@+id/time_icon"
-                android:layout_alignStart="@+id/task_date" />
+                <TextView
+                    android:id="@+id/task_time"
+                    style="@android:style/TextAppearance.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/task_date"
+                    android:layout_alignParentBottom="true"
+                    android:text="Task Time"
+                    android:textColor="@color/orange200" />
 
             <TextView
                 android:id="@+id/remindText"
