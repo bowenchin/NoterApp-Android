@@ -26,7 +26,7 @@ public class AboutActivity extends AppCompatActivity {
                 .isRTL(false)
                 .setImage(R.drawable.ic_launcher_about)
                 .setDescription("Noter is a free, simple, private note and todo app. Everything is located in a central location on a single list and stored privately on your smartphone or tablet. It is also designed with the latest Material Design components and guidelines.")
-                .addItem(new Element().setTitle("Version 1.2.1"))
+                .addItem(new Element().setTitle("Version 1.4"))
                 .addGroup("Connect with us")
                 .addWebsite("http://bowenchin.com/")
                 .addTwitter("thebowenchin")

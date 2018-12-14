@@ -6,17 +6,16 @@ import android.app.LoaderManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.CursorLoader;
-import android.content.Intent;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,12 +118,22 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_task_edit,container,false);
 
+        Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
+
         rootView = v.getRootView();
         titleText = (EditText)v.findViewById(R.id.title);
         notesText = (EditText)v.findViewById(R.id.notes);
         dateButton = (TextView)v.findViewById(R.id.task_date);
         timeButton = (TextView)v.findViewById(R.id.task_time);
-        exitButton = (ImageView)v.findViewById(R.id.exit);
         reminderSwitch = (Switch)v.findViewById(R.id.reminderSwitch);
         reminderLayout = (RelativeLayout)v.findViewById(R.id.reminderLayout);
 
@@ -156,21 +165,6 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
                 }
             }
         });
-
-        //Configure exit button (TEMP)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            exitButton.setVisibility(View.VISIBLE);
-            exitButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getActivity(), TaskListActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }
-        else
-            exitButton.setVisibility(View.GONE);
-
 
         //Configure FAB
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
