@@ -63,7 +63,7 @@ public class TaskListFragment extends Fragment implements android.support.v4.app
         if (id == R.id.action_sort_date) {
             doSort = true;
             Bundle args = new Bundle();
-            args.putString("sortOrder", "task_date_time");
+            args.putString("sortOrder", "task_date_time DESC");
             getLoaderManager().restartLoader(id, args, this);
             return true;
         }
