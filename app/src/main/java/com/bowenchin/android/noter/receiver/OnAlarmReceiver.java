@@ -9,11 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
 
 import com.bowenchin.android.noter.R;
 import com.bowenchin.android.noter.TaskEditActivity;
-import com.bowenchin.android.noter.TaskListActivity;
 import com.bowenchin.android.noter.provider.TaskProvider;
 
 /**
@@ -35,11 +35,11 @@ public class OnAlarmReceiver extends BroadcastReceiver {
         taskEditIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pi = PendingIntent.getActivity(context, requestID , taskEditIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Notification noti;
         String channelId = "REMINDERS_CHANNEL";// The id of the channel.
         CharSequence channelName = "Noter Reminders";
-        int importance = NotificationManager.IMPORTANCE_LOW;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+
             /* Create or update. */
             NotificationChannel channel = new NotificationChannel(channelId,
                     "Reminders",
@@ -53,27 +53,30 @@ public class OnAlarmReceiver extends BroadcastReceiver {
             nm.createNotificationChannel(notificationChannel);
 
             //Build the Notification object using Notification.Builder
-            noti = new Notification.Builder(context)
+            NotificationCompat.Builder notiBuilder = new NotificationCompat.Builder(context, channelId)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(title)
                     .setSmallIcon(R.drawable.ic_notifications_white_24dp)
                     .setContentIntent(pi)
                     .setAutoCancel(true)
                     .setChannelId(channelId)
-                    .build();
+                    .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+            //Send the notification
+            nm.notify((int)taskId, notiBuilder.build());
+
         } else {
             //Build the Notification object using Notification.Builder
-            noti = new Notification.Builder(context)
+            Notification notiBuilder = new Notification.Builder(context)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(title)
                     .setSmallIcon(R.drawable.ic_notifications_white_24dp)
                     .setContentIntent(pi)
                     .setAutoCancel(true)
                     .build();
+
+            //Send the notification
+            nm.notify((int)taskId, notiBuilder);
         }
-
-
-        //Send the notification
-        nm.notify((int)taskId, noti);
     }
 }

@@ -2,10 +2,9 @@ package com.bowenchin.android.noter;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntroFragment;
@@ -22,10 +21,10 @@ public class IntroActivity extends AppIntro2{
 
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest.
-        addSlide(AppIntroFragment.newInstance("Welcome to Noter", "A simple and minimalistic to-do list and note taking app.", R.drawable.ic_launcher_web, getResources().getColor(R.color.primary)));
-        addSlide(AppIntroFragment.newInstance("All your notes in one place", "Notes are stored locally on your device and displayed in one list to avoid confusion and complexity.", R.drawable.empty_view_illustration, getResources().getColor(R.color.primary_dark)));
-        addSlide(AppIntroFragment.newInstance("Light and Dark", "Personalize your experience by choosing between light and dark theme.", R.drawable.personalize, Color.rgb(75,160,0)));
-        addSlide(AppIntroFragment.newInstance("Stay organized", "Long press or swipe away task cards to delete them.", R.drawable.organized, Color.rgb(225, 60, 52)));
+        addSlide(AppIntroFragment.newInstance("Welcome to Noter", "A simple and minimalistic note and task app", R.mipmap.ic_launcher_round, getResources().getColor(R.color.primary)));
+        addSlide(AppIntroFragment.newInstance("All your notes in one place", "Notes are stored locally on your device and displayed in one list to avoid confusion and complexity", R.drawable.empty_view_illustration, getResources().getColor(R.color.primary_dark)));
+        addSlide(AppIntroFragment.newInstance("Light and Dark", "Personalize your experience by choosing between light and dark theme", R.drawable.personalize, Color.rgb(75,160,0)));
+        addSlide(AppIntroFragment.newInstance("Stay organized", "Long press or swipe away task cards to delete them", R.drawable.organized, Color.rgb(225, 60, 52)));
         addSlide(AppIntroFragment.newInstance("Get started", "We hope you enjoy this app!", R.drawable.start, Color.rgb(0, 175, 218)));
 
 

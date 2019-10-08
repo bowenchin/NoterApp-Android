@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tall_toolbar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,19 +23,19 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:toolbarId="@+id/toolbar">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/header">
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/titleLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -53,138 +53,172 @@
                         android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="17"
                         android:maxLines="3"
                         android:hint="@string/title"
                         android:textSize="22sp" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_marginTop="@dimen/tall_toolbar_height">
 
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:clipToPadding="false">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/notesLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="230dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginEnd="16dp">
+                android:layout_height="match_parent">
 
-                <EditText
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/noteContentCard"
+                    style="?attr/cardStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/notes"
-                    android:hint="@string/notes"
-                    android:ems="17"
-                    android:minLines="7"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignRight="@+id/fab"
-                    android:layout_alignEnd="@+id/fab" />
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            </android.support.design.widget.TextInputLayout>
+                    <LinearLayout
+                        android:layout_margin="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/notesLayout"
-                android:layout_alignBottom="@+id/notesLayout"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginBottom="75dp"
-                android:src="@drawable/ic_insert_comment_black_24dp"
-                android:tint="?attr/colorPrimaryDark" />
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_insert_comment_black_24dp"
+                            android:tint="?attr/colorPrimary" />
 
-            <Switch
-                android:id="@+id/reminderSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/notesLayout"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:text="@string/reminder_switch"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/notesLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp">
 
-            <RelativeLayout
-                android:id="@+id/reminderLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/notesLayout"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginBottom="16dp">
+                            <EditText
+                                android:id="@+id/notes"
+                                android:textSize="16sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignEnd="@+id/fab"
+                                android:layout_alignParentBottom="true"
+                                android:hint="@string/notes"
+                                android:minLines="6" />
 
-            <ImageView
-                android:id="@+id/reminderIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_insert_invitation_black_24dp"
-                android:layout_below="@+id/remindText"
-                android:layout_marginTop="8dp"
-                android:tint="?attr/colorPrimaryDark"
-                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_alarm_black_24dp"
-                android:id="@+id/time_icon"
-                android:layout_below="@+id/reminderIcon"
-                android:layout_marginTop="16dp"
-                android:tint="?attr/colorPrimaryDark"
-                />
+                    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@android:style/TextAppearance.Medium"
-                android:id="@+id/task_date"
-                android:text="Task Date"
-                android:textColor="@color/orange200"
-                android:layout_alignTop="@+id/reminderIcon"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="32dp" />
+                </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/task_time"
-                    style="@android:style/TextAppearance.Medium"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    style="?attr/cardStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/task_date"
-                    android:layout_alignParentBottom="true"
-                    android:text="Task Time"
-                    android:textColor="@color/orange200" />
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noteContentCard">
 
-            <TextView
-                android:id="@+id/remindText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/reminderIcon"
-                android:layout_alignStart="@+id/reminderIcon"
-                android:text="@string/set_reminder"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                    <Switch
+                        android:id="@+id/reminderSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/notesLayout"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/reminder_switch"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-            </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/reminderLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/notesLayout"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="48dp"
+                        android:layout_marginBottom="16dp">
 
-        </RelativeLayout>
-    </ScrollView>
+                        <ImageView
+                            android:id="@+id/reminderIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/remindText"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_insert_invitation_black_24dp"
+                            android:tint="?attr/colorPrimary" />
 
-    <android.support.design.widget.FloatingActionButton
+                        <ImageView
+                            android:id="@+id/time_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/reminderIcon"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/ic_alarm_black_24dp"
+                            android:tint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/task_date"
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/reminderIcon"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="32dp"
+                            android:text="Set Date"
+                            android:textColor="@color/orange200" />
+
+                        <TextView
+                            android:id="@+id/task_time"
+                            style="@android:style/TextAppearance.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/task_date"
+                            android:layout_alignParentBottom="true"
+                            android:text="Set Time"
+                            android:textColor="@color/orange200" />
+
+                        <TextView
+                            android:id="@+id/remindText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/reminderIcon"
+                            android:layout_alignLeft="@+id/reminderIcon"
+                            android:text="@string/set_reminder"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -196,4 +230,4 @@
         app:fabSize="normal"
         app:layout_anchor="@+id/app_bar"
         app:layout_anchorGravity="right|bottom" />
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

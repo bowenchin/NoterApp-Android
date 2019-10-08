@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 
@@ -24,14 +24,12 @@ public class AboutActivity extends AppCompatActivity {
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
-                .setImage(R.drawable.ic_launcher_about)
-                .setDescription("Noter is a free, simple, private note and todo app. Everything is located in a central location on a single list and stored privately on your smartphone or tablet. It is also designed with the latest Material Design components and guidelines.")
-                .addItem(new Element().setTitle("Version 1.4"))
+                .setImage(R.mipmap.ic_launcher_round)
+                .setDescription("Noter is a free, simple, private note and todo app designed with the latest Material Design UI.\n\nEverything is located in a single list and stored locally on your smartphone or tablet.")
+                .addItem(new Element().setTitle("Version 1.6"))
                 .addGroup("Connect with us")
                 .addWebsite("http://bowenchin.com/")
-                .addTwitter("thebowenchin")
                 .addPlayStore("com.bowenchin.android.noter")
-                .addInstagram("thebowenchin")
                 .addGitHub("bowenchin")
                 .addItem(getCopyRightsElement())
                 .create();

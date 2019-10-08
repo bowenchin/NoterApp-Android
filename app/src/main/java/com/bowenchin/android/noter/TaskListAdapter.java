@@ -8,8 +8,8 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,6 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.bowenchin.android.noter.interfaces.OnEditTask;
 import com.bowenchin.android.noter.provider.TaskProvider;
 import com.bowenchin.android.noter.util.ReminderManager;
-import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
 
 import java.text.SimpleDateFormat;
 

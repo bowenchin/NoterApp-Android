@@ -17,16 +17,16 @@
 
     <string name="reminder_switch">Set notification reminder</string>
     <string name="set_reminder">Remind me at:</string>
-    <string name="task_saved_message">Task has been saved.</string>
+    <string name="task_saved_message">Task has been saved</string>
 
-    <string name="no_data_available">You do not have any notes or tasks.</string>
+    <string name="no_data_available">Get started by adding a new note!</string>
 
     <!-- For preferences -->
     <string name="default_title">Default Title</string>
     <string name="tasks">Tasks</string>
-    <string name="default_title_description">The default title for a task.</string>
+    <string name="default_title_description">The default title for a task</string>
     <string name="minutes_from_now">Minutes from now</string>
-    <string name="minutes_from_now_description">The default number of minutes into the future to set the reminder.</string>
+    <string name="minutes_from_now_description">The default number of minutes into the future to set the reminder</string>
     <string name="pref_task_title_key">default_task_title</string>
     <string name="pref_default_time_from_now_key">time_from_now_default</string>
 
@@ -34,7 +34,7 @@
     <string name="pref_theme" translatable="false">pref_theme</string>
     <string name="pref_help" translatable="false">pref_help</string>
     <string name="pref_theme_title">Theme</string>
-    <string name="pref_theme_description">You can choose between light or dark theme for the app interface.</string>
+    <string name="pref_theme_description">You can choose between default or dark theme for the app interface</string>
     <string name="pref_category_application">Application</string>
     <string name="pref_category_other">Other</string>
 
