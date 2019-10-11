@@ -300,9 +300,10 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
     private void save(){
         //Put all values the user entered into a ContentValues object
         String title = titleText.getText().toString();
+        String note = notesText.getText().toString();
         ContentValues values = new ContentValues();
         values.put(TaskProvider.COLUMN_TITLE, title);
-        values.put(TaskProvider.COLUMN_NOTES, notesText.getText().toString());
+        values.put(TaskProvider.COLUMN_NOTES, note);
         values.put(TaskProvider.COLUMN_DATE_TIME, taskDateAndTime.getTimeInMillis());
 
         //taskId==0 when we create a new task,
@@ -324,7 +325,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener,OnTi
 
         if(reminderSwitch.isChecked()) {
             //Create a reminder for this task
-            ReminderManager.setReminder(getActivity(), taskId, title, taskDateAndTime);
+            ReminderManager.setReminder(getActivity(), taskId, title, note, taskDateAndTime);
         } else if (!reminderSwitch.isChecked() && taskId != 0 && taskDateAndTime != null) {
             ReminderManager.deleteReminder(getActivity(), taskId);
         }

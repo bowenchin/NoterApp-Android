@@ -17,11 +17,12 @@ import java.util.Calendar;
 public class ReminderManager {
     private ReminderManager(){}
 
-    public static void setReminder(Context context, long taskId, String title, Calendar when){
+    public static void setReminder(Context context, long taskId, String title, String note, Calendar when){
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(context, OnAlarmReceiver.class);
         i.putExtra(TaskProvider.COLUMN_TASKID, taskId);
         i.putExtra(TaskProvider.COLUMN_TITLE, title);
+        i.putExtra(TaskProvider.COLUMN_NOTES, note);
 
         PendingIntent pi = PendingIntent.getBroadcast(context, 0 , i, PendingIntent.FLAG_ONE_SHOT);
 

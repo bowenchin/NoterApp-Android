@@ -29,16 +29,18 @@ public class OnBootReceiver extends BroadcastReceiver {
             int taskIdColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TASKID);
             int dateTimeColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_DATE_TIME);
             int titleColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TITLE);
+            int noteColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_NOTES);
 
             while(!cursor.isAfterLast()){
                 long taskId = cursor.getLong(taskIdColumnIndex);
                 long dateTime = cursor.getLong(dateTimeColumnIndex);
                 String title = cursor.getString(titleColumnIndex);
+                String note = cursor.getString(noteColumnIndex);
 
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(new Date(dateTime));
 
-                ReminderManager.setReminder(context, taskId, title, cal);
+                ReminderManager.setReminder(context, taskId, title, note, cal);
 
                 cursor.moveToNext();
             }

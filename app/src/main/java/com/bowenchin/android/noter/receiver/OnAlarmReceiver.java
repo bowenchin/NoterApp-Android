@@ -28,7 +28,8 @@ public class OnAlarmReceiver extends BroadcastReceiver {
 
         Intent taskEditIntent = new Intent(context, TaskEditActivity.class);
         long taskId = intent.getLongExtra(TaskProvider.COLUMN_TASKID, -1);
-        String title = intent.getStringExtra(TaskProvider.COLUMN_TITLE);
+        String mTitle = intent.getStringExtra(TaskProvider.COLUMN_TITLE);
+        String mNote = intent.getStringExtra(TaskProvider.COLUMN_NOTES);
         taskEditIntent.putExtra(TaskProvider.COLUMN_TASKID, taskId);
 
         int requestID = (int) System.currentTimeMillis();
@@ -36,7 +37,7 @@ public class OnAlarmReceiver extends BroadcastReceiver {
         PendingIntent pi = PendingIntent.getActivity(context, requestID , taskEditIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         String channelId = "REMINDERS_CHANNEL";// The id of the channel.
-        CharSequence channelName = "Noter Reminders";
+        CharSequence channelName = "Reminder Notification";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
 
@@ -54,8 +55,8 @@ public class OnAlarmReceiver extends BroadcastReceiver {
 
             //Build the Notification object using Notification.Builder
             NotificationCompat.Builder notiBuilder = new NotificationCompat.Builder(context, channelId)
-                    .setContentTitle(context.getString(R.string.app_name))
-                    .setContentText(title)
+                    .setContentTitle(mTitle)
+                    .setContentText(mNote)
                     .setSmallIcon(R.drawable.ic_notifications_white_24dp)
                     .setContentIntent(pi)
                     .setAutoCancel(true)
@@ -68,8 +69,8 @@ public class OnAlarmReceiver extends BroadcastReceiver {
         } else {
             //Build the Notification object using Notification.Builder
             Notification notiBuilder = new Notification.Builder(context)
-                    .setContentTitle(context.getString(R.string.app_name))
-                    .setContentText(title)
+                    .setContentTitle(mTitle)
+                    .setContentText(mNote)
                     .setSmallIcon(R.drawable.ic_notifications_white_24dp)
                     .setContentIntent(pi)
                     .setAutoCancel(true)
